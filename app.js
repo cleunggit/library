@@ -95,11 +95,29 @@ app.addListenerToDelete = (index) => {
   });
 };
 
+app.addListenerToRead = (index) => {
+  $('.readBtn').on('click', ()  => {
+    app.toggleRead(index)
+  })
+}
+
 app.createDeleteButton = function(index) {
   const deleteBtn = `<td><button class="deleteBtn">Remove</button></td>`
   app.addListenerToDelete(index)
   return deleteBtn;
 };
+
+// create read button
+app.createReadButton = function(index) {
+  const readBtn = `<td><button class="readBtn">Change Status</button></td>`
+  app.addListenerToRead(index)
+  return readBtn;
+};
+
+app.toggleRead = (index) => {
+  app.myLibrary[index].status === 'Read' ? app.myLibrary[index].status = 'Not Read' : app.myLibrary[index].status = 'Read'
+  app.renderTable()
+}
 
 // render table
 app.headers = ['Title', 'Author', 'Pages', 'Status', ''];
@@ -121,9 +139,11 @@ app.renderTable = () => {
       <td>${book.author}</td>
       <td>${book.pages}</td>
       <td>${book.status}</td>
+      ${app.createReadButton(index)}
       ${app.createDeleteButton(index)})
     </tr>
     `);
+    app.addListenerToRead(index)
     app.addListenerToDelete(index)
   });
 
