@@ -1,7 +1,9 @@
 const app = {};
 
 app.init = () => {
+  app.displayForm()
   app.renderTable()
+  app.addBook()
 };
 
 $(function() {
@@ -33,12 +35,13 @@ app.myLibrary = [book1, book2];
 
 
 // book constructor
-app.Book = (title, author, pages, read) => {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.status = read;
 };
+
 
 // add new book to library
 app.addBookToLibrary = () => {
@@ -46,10 +49,41 @@ app.addBookToLibrary = () => {
   const $author = $("#author").val();
   const $pages = $("#pages").val();
   const $status = $("option:selected").text();
-  const newBook = new app.Book($title, $author, $pages, $status);
+  const newBook = new Book($title, $author, $pages, $status);
   app.myLibrary.push(newBook);
 };
 
+// display form
+app.displayForm = () => {
+  $(".newBookBtn").on("click", () => {
+    $(".addBookDetails").toggleClass("hidden");
+  });
+};
+// clear form
+app.clearForm = () => {
+  app.$title.val("")
+  app.$author.val("")
+  app.$pages.val("")
+}
+
+// check form
+app.checkForm = () => {
+  if (app.$title.val() === "" || app.$author.val() === "" || app.$pages.val() === "") {
+    alert(`Cannot leave field blank`)
+    return false
+  } else {
+    return true
+  }
+}
+// add book to table
+app.addBook = () => {
+  $('#add').on('click', () => {
+    app.addBookToLibrary()
+    $(".addBookDetails").toggleClass("hidden");
+    app.renderTable()
+    app.clearForm()
+  });
+};
 
 // event listeners
 app.addListenerToDelete = (index) => {
@@ -58,8 +92,8 @@ app.addListenerToDelete = (index) => {
     app.myLibrary.splice(index, 1);
     app.renderTable();
     // console.log(index);
-  })
-}
+  });
+};
 
 app.createDeleteButton = function(index) {
   const deleteBtn = `<td><button class="deleteBtn">Remove</button></td>`
