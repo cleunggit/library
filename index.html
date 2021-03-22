@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>The Odin Project: Library Project</title>
+  
+</head>
+<body>
+  <div class="myLibrary">
+    <h2>My Library</h2>
+    <button class="newBookBtn">NEW BOOK</button>
+    <table class="library">
+      <tr class="header"></tr>
+      <tbody class="books"></tbody>
+      <!-- <tbody>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </tbody>
+      <tbody class="books">
+
+      </tbody> -->
+      <tr class="addBookDetails hidden">
+        <td><input id="title" type="text" placeholder="Book title" required></td>
+        <td><input id="author" type="text" placeholder="Author" required></td>
+        <td><input id="pages" type="text" placeholder="Number of pages" required></td>
+        <td>
+          <select name="readStatus" id="readStatus">
+            <option value="read">Read</option>
+            <option value="not">Not Read</option>
+          </select>
+        </td>
+        <td><button id="add" type="submit" value="Add">Add</td>
+        </tr>
+    </table>
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
