@@ -28,6 +28,16 @@ h1, h2, h3 {
   margin: 0;
 }
 
+a, a:visited {
+  text-decoration: none;
+  color: var(--darkgray);
+}
+
+a:hover {
+  color: var(--medgray);
+  transition: 0.2s ease-in-out;
+}
+
 .hidden {
   display: none;
 }
@@ -81,15 +91,14 @@ button {
 
 button:hover {
   border: 1px solid var(--darkgray);
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 
 .deleteBtn {
   background-color: var(--red);
   border: none;
-  color: white;
-  
+  color: white;  
 }
 
 .deleteBtn:hover {
