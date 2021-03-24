@@ -1,6 +1,17 @@
+:root {
+  --red: rgb(228, 26, 103);
+  --darkred: rgb(207, 24, 94);
+  --lightgray: #bbb;
+  --medgray: #888;
+  --darkgray: #222;
+  --lightblue: #33C4F0;
+}
+
 html {
   box-sizing: border-box;
   font-size: 100%;
+  font-family: 'Raleway', sans-serif;
+  color: var(--darkgray);
 }
 
 *, *::before, *::after {
@@ -21,15 +32,84 @@ h1, h2, h3 {
   display: none;
 }
 
+h1 {
+  margin: 20px 0;
+
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.myLibrary {
+}
+
 .library {
   table-layout: fixed;
   width: 100%;
   text-align: left;
   border-collapse: collapse;
+  margin: 10px 0;
 }
 
 td, th {
   /* border: 1px solid #000; */
   text-align: left;
-  padding: 8px;
+  padding: 14px 0;
+  
+}
+
+.header {
+  border-bottom: 1px solid #E1E1E1;;
+}
+
+button {
+  margin: 0;
+  padding: 10px 0;
+  border-radius: 4px;
+  width: 120px;
+  border: 1px solid var(--lightgray);
+  background-color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+button:hover {
+  border: 1px solid var(--darkgray);
+  transition: 0.3s ease-in-out;
+}
+
+
+.deleteBtn {
+  background-color: var(--red);
+  border: none;
+  color: white;
+  
+}
+
+.deleteBtn:hover {
+  background-color: var(--darkred);
+  border: none;
+}
+
+input, select {
+  height: 38px;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  padding: 6px 10px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#title, #author, #pages {
+  width: 150px;
+}
+
+footer {
+  text-align: center;
 }

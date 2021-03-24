@@ -120,7 +120,7 @@ app.toggleRead = (index) => {
 }
 
 // render table
-app.headers = ['Title', 'Author', 'Pages', 'Status', ''];
+app.headers = ['Title', 'Author', 'Pages', 'Status', '', ''];
 
 app.renderTable = () => {
   $('.header').empty();
@@ -135,7 +135,7 @@ app.renderTable = () => {
   app.myLibrary.forEach((book, index) => {
     $('.books').append(`
     <tr>
-      <td id=${index}>${book.title}</td>
+      <td id=${index} class="title">${book.title}</td>
       <td>${book.author}</td>
       <td>${book.pages}</td>
       <td>${book.status}</td>
