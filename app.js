@@ -69,7 +69,6 @@ app.clearForm = () => {
 // check form
 app.checkForm = () => {
   if (app.$title.val() === "" || app.$author.val() === "" || app.$pages.val() === "") {
-    alert(`Cannot leave field blank`)
     return false
   } else {
     return true
@@ -78,10 +77,12 @@ app.checkForm = () => {
 // add book to table
 app.addBook = () => {
   $('#add').on('click', () => {
-    app.addBookToLibrary()
-    $(".addBookDetails").toggleClass("hidden");
-    app.renderTable()
-    app.clearForm()
+    if (app.checkForm()) {
+      app.addBookToLibrary()
+      $(".addBookDetails").toggleClass("hidden");
+      app.renderTable()
+      app.clearForm()
+    } 
   });
 };
 
