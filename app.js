@@ -28,7 +28,7 @@ const book2 = {
   title: "Chamber of Secrets",
   author: "J.K. Rowling",
   pages: 300,
-  status: "Read",
+  status: "Not Read",
 };
 
 app.myLibrary = [book1, book2];
