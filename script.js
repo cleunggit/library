@@ -37,6 +37,11 @@ function Book(title, author, pages, read) {
   this.status = read;
 }
 
+// factory function
+app.bookFactory = (title, author, pages, read) => {
+  return {title, author, pages, read}
+}
+
 function getInput() {
   $("#add").click(() => {
     const title = $("#title").val();
@@ -69,7 +74,8 @@ app.addBookToLibrary = () => {
       const $author = $("#author").val();
       const $pages = $("#pages").val();
       const $status = $("option:selected").text();
-      const newBook = new Book($title, $author, $pages, $status);
+      // const newBook = new Book($title, $author, $pages, $status);
+      const newBook = app.bookFactory($title, $author, $pages, $status);
       
       app.myLibrary.push(newBook);
       app.clearForm()
